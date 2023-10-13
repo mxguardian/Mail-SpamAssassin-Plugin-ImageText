@@ -1,6 +1,7 @@
 package Mail::SpamAssassin::Plugin::ImageText;
 use strict;
 use warnings FATAL => 'all';
+no warnings 'redefine';
 
 use Mail::SpamAssassin::Plugin;
 use Mail::SpamAssassin::Logger qw(would_log);
@@ -99,9 +100,6 @@ sub finish_parsing_end {
     my ($self, $opts) = @_;
     my $conf = $opts->{conf};
 
-    # prevent warnings about redefining subs
-    undef &_run_imagetext_rules;
-
     # only compile rules if we have any
     return unless exists $conf->{imagetext_rules};
 
@@ -182,10 +180,14 @@ EOF
 
 }
 
+sub _run_imagetext_rules {
+    # placeholder
+}
+
 sub parsed_metadata {
     my ($self, $opts) = @_;
 
-    $self->_run_imagetext_rules($opts) if $self->can('_run_imagetext_rules');
+    $self->_run_imagetext_rules($opts);
 
 }
 
