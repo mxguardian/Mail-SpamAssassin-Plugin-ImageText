@@ -24,6 +24,21 @@ Mail::SpamAssassin::Plugin::ImageText - SpamAssassin plugin to match text in ima
 This plugin allows you to write rules that match text in images. The text must be extracted
 from the image by another plugin, such as L<Mail::SpamAssassin::Plugin::ExtractText>
 
+=head1 AUTHORS
+
+Kent Oyer <kent@mxguardian.net>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2023 MXGuardian LLC
+
+This is free software; you can redistribute it and/or modify it under
+the terms of the Apache License 2.0. See the LICENSE file included
+with this distribution for more information.
+
+This plugin is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the
+implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
 =cut
 
 sub dbg { Mail::SpamAssassin::Logger::dbg ("ImageText: @_"); }
